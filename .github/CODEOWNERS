@@ -120,6 +120,9 @@
 ## common-updater-scripts
 /pkgs/common-updater/scripts/update-source-version    @jtojnar
 
+# Misc. maintainer scripts
+/maintainers/scripts/sha256-to-hash.py  @nbraud
+
 # Python-related code and docs
 /maintainers/scripts/update-python-libraries	              @FRidh
 /pkgs/development/interpreters/python                       @FRidh
