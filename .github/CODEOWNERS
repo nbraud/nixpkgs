@@ -60,6 +60,7 @@
 /.github/workflows/check-by-name.yml @infinisil
 
 # Nixpkgs build-support
+/pkgs/build-support/fetchdebianpatch @nbraud
 /pkgs/build-support/writers @lassulus @Profpatsch
 
 # Nixpkgs make-disk-image
