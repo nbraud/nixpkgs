@@ -1,33 +1,35 @@
 { lib
 , callPackage
 , config
+, newScope
 }:
 
-lib.recurseIntoAttrs rec {
-    inherit (callPackage ./mpv.nix { inherit buildLua; })
-      acompressor autocrop autodeint autoload;
-    inherit (callPackage ./occivink.nix {inherit buildLua; })
-      blacklistExtensions seekTo;
+lib.makeScope newScope (self:
+  let inherit (self) callPackage;
+  in {
+    inherit (callPackage ./mpv.nix { }) acompressor autocrop autodeint autoload;
+    inherit (callPackage ./occivink.nix { }) blacklistExtensions seekTo;
 
     buildLua = callPackage ./buildLua.nix { };
-    chapterskip = callPackage ./chapterskip.nix { inherit buildLua; };
-    convert = callPackage ./convert.nix { inherit buildLua; };
+    chapterskip = callPackage ./chapterskip.nix { };
+    convert = callPackage ./convert.nix { };
     inhibit-gnome = callPackage ./inhibit-gnome.nix { };
     mpris = callPackage ./mpris.nix { };
-    mpv-playlistmanager = callPackage ./mpv-playlistmanager.nix { inherit buildLua; };
-    mpv-webm = callPackage ./mpv-webm.nix { inherit buildLua; };
-    mpvacious = callPackage ./mpvacious.nix { inherit buildLua; };
-    quality-menu = callPackage ./quality-menu.nix { inherit buildLua; };
-    simple-mpv-webui = callPackage ./simple-mpv-webui.nix { inherit buildLua; };
+    mpv-playlistmanager = callPackage ./mpv-playlistmanager.nix { };
+    mpv-webm = callPackage ./mpv-webm.nix { };
+    mpvacious = callPackage ./mpvacious.nix { };
+    quality-menu = callPackage ./quality-menu.nix { };
+    simple-mpv-webui = callPackage ./simple-mpv-webui.nix { };
     sponsorblock = callPackage ./sponsorblock.nix { };
-    thumbfast = callPackage ./thumbfast.nix { inherit buildLua; };
-    thumbnail = callPackage ./thumbnail.nix { inherit buildLua; };
+    thumbfast = callPackage ./thumbfast.nix { };
+    thumbnail = callPackage ./thumbnail.nix { };
     uosc = callPackage ./uosc.nix { };
     visualizer = callPackage ./visualizer.nix { };
     vr-reversal = callPackage ./vr-reversal.nix { };
     webtorrent-mpv-hook = callPackage ./webtorrent-mpv-hook.nix { };
     cutter = callPackage ./cutter.nix { };
 
-} // lib.optionalAttrs config.allowAliases {
-  youtube-quality = throw "'youtube-quality' is no longer maintained, use 'quality-menu' instead"; # added 2023-07-14
-}
+  } // lib.optionalAttrs config.allowAliases {
+    youtube-quality = throw "'youtube-quality' is no longer maintained, use 'quality-menu' instead"; # added 2023-07-14
+  }
+)
