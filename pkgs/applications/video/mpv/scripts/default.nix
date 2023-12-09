@@ -3,13 +3,13 @@
 , config
 }:
 
-let buildLua = callPackage ./buildLua.nix { };
-in lib.recurseIntoAttrs {
+lib.recurseIntoAttrs rec {
     inherit (callPackage ./mpv.nix { inherit buildLua; })
       acompressor autocrop autodeint autoload;
     inherit (callPackage ./occivink.nix {inherit buildLua; })
       blacklistExtensions seekTo;
 
+    buildLua = callPackage ./buildLua.nix { };
     chapterskip = callPackage ./chapterskip.nix { inherit buildLua; };
     convert = callPackage ./convert.nix { inherit buildLua; };
     inhibit-gnome = callPackage ./inhibit-gnome.nix { };
