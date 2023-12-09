@@ -1,9 +1,6 @@
-{ lib
-, buildLua
-, mpv-unwrapped
-}:
+{ lib }:
 
-let mkBuiltin = name: args:
+let mkBuiltin = name: args: { buildLua, mpv-unwrapped }:
   let srcPath = "TOOLS/lua/${name}.lua";
   in buildLua (lib.attrsets.recursiveUpdate rec {
     inherit (mpv-unwrapped) src version;

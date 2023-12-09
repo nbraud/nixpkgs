@@ -1,7 +1,4 @@
-{ lib
-, fetchFromGitHub
-, buildLua
-}:
+{ lib }:
 
 let
   camelToKebab = let
@@ -9,7 +6,7 @@ let
     isUpper = match "[A-Z]";
   in stringAsChars (c: if isUpper c != null then "-${toLower c}" else c);
 
-  mkScript = name: args:
+  mkScript = name: args: { buildLua, fetchFromGitHub }:
     buildLua (lib.attrsets.recursiveUpdate rec {
       pname = camelToKebab name;
       src = fetchFromGitHub {
