@@ -122,6 +122,7 @@
 
 # Misc. maintainer scripts
 /maintainers/scripts/sha256-to-hash.py  @nbraud
+/maintainers/scripts/get-maintainer.sh  @nbraud
 
 # MPV scripting support
 /pkgs/applications/video/mpv/scripts/buildLua.nix  @nbraud
