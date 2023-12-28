@@ -38,7 +38,7 @@ let
 in
 lib.mapAttrs (name: lib.makeOverridable (mkScript name)) {
 
-  # Usage: `pkgs.mpv.override { scripts = [ pkgs.mpvScripts.seekTo ]; }`
+  # Usage: `wrapMpv mpv-unwrapped { scripts = [ mpvScripts.seekTo ]; }`
   seekTo.meta.description = "Mpv script for seeking to a specific position";
   blacklistExtensions.meta.description =
     "Automatically remove playlist entries based on their extension.";
