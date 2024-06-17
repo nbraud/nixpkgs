@@ -30,7 +30,6 @@ stdenv.mkDerivation rec {
   extraConfig = ''
     #CONFIG_ELOOP_EPOLL=y
     #CONFIG_PRIVSEP=y
-    #CONFIG_TLSV12=y see #8332
     CONFIG_AP=y
     CONFIG_BGSCAN_LEARN=y
     CONFIG_BGSCAN_SIMPLE=y
@@ -62,6 +61,7 @@ stdenv.mkDerivation rec {
     CONFIG_TDLS=y
     CONFIG_TLS=openssl
     CONFIG_TLSV11=y
+    CONFIG_TLSV12=y # previously disabled due to #8332
     CONFIG_VHT_OVERRIDES=y
     CONFIG_WNM=y
     CONFIG_WPS=y
