@@ -169,6 +169,14 @@ with lib.maintainers;
     enableFeatureFreezePing = true;
   };
 
+  cppyy = {
+    members = [
+      nicoo
+    ];
+    scope = "Maintain the `cppyy` Python/C++ FFI and related packages";
+    shortName = "cppyy";
+  };
+
   cuda = {
     members = [
       connorbaker
