@@ -1187,7 +1187,7 @@ mapAliases {
   mariadb_105 = throw "'mariadb_105' has been removed because it reached its End of Life. Consider upgrading to 'mariadb_106'."; # Added 2025-04-26
   mariadb_110 = throw "mariadb_110 has been removed from nixpkgs, please switch to another version like mariadb_114"; # Added 2024-08-15
   mariadb-client = hiPrio mariadb.client; # added 2019.07.28
-  maligned = throw "maligned was deprecated upstream in favor of x/tools/go/analysis/passes/fieldalignment"; # Added 20204-08-24
+  maligned = throw "maligned was deprecated upstream in favor of x/tools/go/analysis/passes/fieldalignment"; # Added 2024-08-24
   manicode = throw "manicode has been renamed to codebuff"; # Added 2024-12-10
   manta = throw "manta does not support python3, and development has been abandoned upstream"; # Added 2025-03-17
   manticore = throw "manticore is no longer maintained since 2020, and doesn't build since smlnj-110.99.7.1"; # Added 2025-05-17
