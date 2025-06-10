@@ -1365,11 +1365,6 @@ mapAliases {
   nix-direnv-flakes = nix-direnv;
   nix-ld-rs = nix-ld; # Added 2024-08-17
   nix-plugin-pijul = throw "nix-plugin-pijul has been removed due to being discontinued"; # added 2025-05-18
-  nix-repl = throw (
-    # Added 2018-08-26
-    "nix-repl has been removed because it's not maintained anymore, "
-    + "use `nix repl` instead. Also see https://github.com/NixOS/nixpkgs/pull/44903"
-  );
   nix-simple-deploy = throw "'nix-simple-deploy' has been removed as it is broken and unmaintained"; # Added 2024-08-17
   nix-universal-prefetch = throw "The nix-universal-prefetch package was dropped since it was unmaintained."; # Added 2024-06-21
   nixFlakes = throw "'nixFlakes' has been renamed to/replaced by 'nixVersions.stable'"; # Converted to throw 2024-10-17
